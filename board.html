@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TASKFLOW – Board</title>
+  <link rel="stylesheet" href="board.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2>TASKFLOW</h2>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="board.html" class="active">Board</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <h1>Board</h1>
+
+      <div class="columns">
+        <div class="column">
+          <h3>Todo</h3>
+          <ul id="todoCol"></ul>
+        </div>
+
+        <div class="column">
+          <h3>In Progress</h3>
+          <ul id="progressCol"></ul>
+        </div>
+
+        <div class="column">
+          <h3>Done</h3>
+          <ul id="doneCol"></ul>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+      <!-- NOTES CARD -->
+      <div class="card notes-card">
+        <section class="card notes-card">
+        <h2>Notes</h2>
+        <ul id="notesList"></ul>
+        </section>
+      </div>
+
+  <script src="board.js"></script>
+</body>
+</html>

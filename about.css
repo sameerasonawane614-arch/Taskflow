@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background-image: url("Download maroon background high quality for free.jpg");
+  background-repeat: repeat;
+  background-size: 300px 100px;
+}
+
+/* NAVBAR */
+.about-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 40px;
+}
+
+.about-nav h2 {
+  margin-right: auto;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: aliceblue;
+}
+
+.about-nav a {
+  text-decoration: none;
+  color: #fefeff;
+  font-weight: 500;
+}
+
+.about-nav a.active,
+.about-nav a:hover {
+  color: #c5c5c5;
+}
+
+/* HERO SECTION */
+.about-hero {
+  min-height: calc(100vh - 80px); /* full screen minus navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 40px;
+}
+
+
+.about-hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 28px;
+  max-width: 900px;
+  color: aliceblue;
+}
+
+.about-hero p {
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #d3d3d3;
+}
+
+.about-tag {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: rotate(90deg);
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #9ca3af;
+}
+
+.accent-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #7a5cff, #ff8282);
+  border-radius: 10px;
+  margin: 18px 0 30px;
+}
+
+
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TASKFLOW</title>
+  <link rel="stylesheet" href="Dashboard.css" />
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2>TASKFLOW</h2>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="board.html">Board</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN DASHBOARD -->
+    <main class="main">
+
+      <!-- TOP BAR -->
+      <div class="top-bar">
+        <h1>Dashboard</h1>
+        <button class="mode-btn" onclick="toggleMode()">🌙</button>
+      </div>
+
+      <!-- TASK INPUT CARD -->
+      <div class="card">
+        <h3>Add Task</h3>
+
+        <input
+          id="taskInput"
+          type="text"
+          placeholder="Enter a task..."
+          onkeydown="handleEnter(event)"
+        />
+
+        <input type="date" id="dateInput" />
+
+        <div class="task-actions">
+          <button onclick="addTask()">Add Task</button>
+        </div>
+      </div>
+
+      <!-- NOTES CARD -->
+      <div class="card notes-card">
+        <h3>Notes</h3>
+
+        <input id="noteTitle" type="text" placeholder="Note title" />
+        <textarea id="noteText" placeholder="Write your note..."></textarea>
+        <button onclick="addNote()">Add Note</button>
+
+        <ul id="notesList"></ul>
+      </div>
+
+      <!-- TODO LIST -->
+<div class="card status-card">
+  <h3>Todo List</h3>
+
+  <div class="column">
+    <h4>Tasks</h4>
+
+    <ul id="todoList">
+      <li class="task-item">
+        <input type="checkbox" />
+        
+        <div class="task-content">
+          <span class="task-text">Complete computer network practical</span>
+          <span class="task-date">2026-02-12</span>
+        </div>
+
+        <button class="delete-btn">🗑</button>
+      </li>
+
+      <li class="task-item">
+        <input type="checkbox" />
+        
+        <div class="task-content">
+          <span class="task-text">Do dishes</span>
+          <span class="task-date">2026-04-12</span>
+        </div>
+
+        <button class="delete-btn">🗑</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+    </main>
+  </div>
+
+
+
+  <script src="Dashboard.js"></script>
+</body>
+</html>
+                                             
