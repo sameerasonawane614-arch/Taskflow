@@ -1,41 +1,59 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
 
-body {
-  font-family: Inter, system-ui, sans-serif;
-  background-image: url("Download maroon background high quality for free.jpg");
-  background-repeat: repeat;
-  background-size: 300px 100px;
-}
+    /* MAKE FOOTER STICK TO BOTTOM */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
 
+      background: linear-gradient(150deg, #caa10e, #efefef);
+      color: #e6dd83;
+    }
+
+    /* PAGE CONTENT */
+    .page-content {
+      flex: 1;
+      padding: 10px;
+    }
 /* NAVBAR */
-.about-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 24px 40px;
-}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background:  #094a0b;
+    }
 
-.about-nav h2 {
-  margin-right: auto;
-  font-size: 20px;
-  letter-spacing: 1px;
-  color: aliceblue;
-}
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #e8e7eb;
+    }
 
-.about-nav a {
-  text-decoration: none;
-  color: #fefeff;
-  font-weight: 500;
-}
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
 
-.about-nav a.active,
-.about-nav a:hover {
-  color: #c5c5c5;
-}
+    nav ul li a {
+      text-decoration: none;
+      color: #c5f40a;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+    }
+
+    nav ul li a:hover {
+      background: rgba(255,255,255,0.1);
+    }
 
 /* HERO SECTION */
 .about-hero {
@@ -44,7 +62,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  background-color: #061e06;
   text-align: center;
   padding: 40px;
 }
@@ -66,23 +84,7 @@ body {
   color: #d3d3d3;
 }
 
-.about-tag {
-  position: absolute;
-  top: 50%;
-  right: 40px;
-  transform: rotate(90deg);
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: #9ca3af;
-}
 
-.accent-line {
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #7a5cff, #ff8282);
-  border-radius: 10px;
-  margin: 18px 0 30px;
-}
 
 
 

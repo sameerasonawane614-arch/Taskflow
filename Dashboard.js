@@ -43,8 +43,8 @@ function renderTaskList() {
 
     li.classList.add("task-item");
 
-li.innerHTML = `
-  <input type="checkbox" class="task-check" ${task.done ? "checked" : ""}>
+    li.innerHTML = `
+  <input type="checkbox" ${task.done ? "checked" : ""}>
 
   <div class="task-content">
     <span class="task-text">${task.text}</span>
@@ -54,16 +54,26 @@ li.innerHTML = `
   <button class="delete-btn">🗑</button>
 `;
 
-
     // Checkbox
     li.querySelector("input").onchange = e => {
       task.done = e.target.checked;
-      task.status = task.done ? "done" : "todo";
       saveTasks(tasks);
     };
 
-    // Delete
+    // Delete task
     li.querySelector(".delete-btn").onclick = () => {
+
+      let history = JSON.parse(localStorage.getItem("history")) || [];
+
+      history.push({
+        type: "task",
+        text: task.text,
+        deletedAt: new Date().toLocaleString(),
+        timestamp: Date.now()
+      });
+
+      localStorage.setItem("history", JSON.stringify(history));
+
       const updated = tasks.filter(t => t.id !== task.id);
       saveTasks(updated);
       renderTaskList();
@@ -101,27 +111,7 @@ window.addNote = function () {
   renderNotes();
 };
 
-function renderNotes() {
-  const notes = getNotes();
-  notesList.innerHTML = "";
 
-  notes
-    .sort((a, b) => b.pinned - a.pinned)
-    .forEach((note, i) => {
-      const li = document.createElement("li");
-      li.className = "note-item" + (note.pinned ? " pinned" : "");
-      
-
-      li.innerHTML = `
-        <strong>${note.title}</strong>
-        <p>${note.text}</p>
-        <button onclick="togglePin(${i})">📌</button>
-        <button onclick="deleteNote(${i})">🗑</button>
-      `;
-
-      notesList.appendChild(li);
-    });
-}
 
 window.togglePin = function (i) {
   const notes = getNotes();
@@ -132,6 +122,20 @@ window.togglePin = function (i) {
 
 window.deleteNote = function (i) {
   const notes = getNotes();
+  const deletedNote = notes[i];
+
+  let history = JSON.parse(localStorage.getItem("history")) || [];
+
+  history.push({
+    type: "note",
+    title: deletedNote.title,
+    text: deletedNote.text,
+    deletedAt: new Date().toLocaleString(),
+    timestamp: Date.now()
+  });
+
+  localStorage.setItem("history", JSON.stringify(history));
+
   notes.splice(i, 1);
   saveNotes(notes);
   renderNotes();

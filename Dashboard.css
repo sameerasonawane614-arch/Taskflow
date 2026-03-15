@@ -1,55 +1,63 @@
-* {
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-  background: linear-gradient(45deg, #9e1f1f, #e5e6e7);
-  background-image: url("Download maroon background high quality for free.jpg");
-  background-repeat: repeat;
-  color: #ffffff;
-}
+    /* MAKE FOOTER STICK TO BOTTOM */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
 
-.app {
-  display: flex;
-  height: 100vh;
-}
+      background: linear-gradient(150deg, #caa10e, #efefef);
+      color: #094a0b;
+    }
 
-.sidebar {
-  width: 230px;
-  background: linear-gradient(180deg, #9e1f1f, #020617);
-  color: white;
-  padding: 24px 20px;
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
-}
+    /* PAGE CONTENT */
+    .page-content {
+      flex: 1;
+      padding:10px;
+    }
 
-.sidebar h2 {
-  margin-bottom: 36px;
-  font-size: 22px;
-  letter-spacing: 0.5px;
-}
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background:  #09580bbb;
+      position: sticky;   /* ADD THIS */
+      top: 0;             /* ADD THIS */
+      z-index: 1000;
+    }
 
-.sidebar a {
-  display: block;
-  color: #cbd5f5;
-  text-decoration: none;
-  margin-bottom: 16px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  transition: all 0.25s ease;
-}
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #e8e7eb;
+    }
 
-.sidebar a:hover {
-  background: rgba(0, 0, 0, 0.08);
-  color: #fff;
-}
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
 
-.sidebar a.active {
-  background: #c26565;
-  color: #fff;
-  font-weight: 500;
-}
+    nav ul li a {
+      text-decoration: none;
+      color: #c5f40a;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+    }
+
+    nav ul li a:hover {
+      background: rgba(255,255,255,0.1);
+    }
 
 
 .main {
@@ -57,6 +65,7 @@ body {
   padding: 30px;
   overflow-y: auto;
 }
+
 
 .top-bar {
   display: flex;
@@ -72,17 +81,19 @@ textarea {
   padding: 10px 12px;
   margin-bottom: 12px;
   border-radius: 8px;
-  border: 1px solid #DFE1E6;
-  font-family: inherit;
+  border: 2px solid #00d62e;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  background-color: #ffffff;
 }
 
 button {
   padding: 10px 16px;
-  background: #ff8282;
+  background: #3cff5a;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  margin-bottom: 12px;
 }
 button:hover{
   background: #000000;
@@ -96,23 +107,22 @@ button:hover{
 
 .clear-btn {
   background: #e5e7eb;
-  color: #bcbec2;
+  color: #0af82e;
 }
 
 
 .notes-card textarea {
   min-height: 100px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .note-item {
-  background: #742e2e;
+  background: #ffff76;
   border: 1px solid #DFE1E6;
   border-radius: 12px;
   padding: 14px;
   margin-bottom: 12px;
 }
-
-
 
 .mode-btn {
   background: pink;
@@ -124,16 +134,39 @@ button:hover{
 
 /* STATUS CARD */
 .status-card {
-  background: linear-gradient(180deg, #8b1e1e, #5a0f0f);
+  background: rgb(255, 236, 26);
   border-radius: 18px;
   padding: 24px;
+  width: 900px;
 }
+
+.status-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  border: #00d62e;
+}
+
+
+/* MAKE ADD TASK + NOTES LOOK LIKE CARDS */
+.card:not(.status-card) {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  margin-bottom: 30px;
+  width:600px;
+  height:350px;
+}
+
 
 /* TITLES */
 .status-card h3 {
   margin-bottom: 16px;
+  border-radius: 18px;
   font-size: 22px;
   color: #fff;
+  background-color: #094a0b;
+  padding: 5px;
 }
 
 .column h4 {
@@ -154,13 +187,15 @@ button:hover{
   align-items: center;
   gap: 14px;
 
-  background: linear-gradient(135deg, #1f2933, #020617);
+  background:  #f8d536;
   border-radius: 14px;
   padding: 14px 16px;
   margin-bottom: 14px;
 
-  color: #e5e7eb;
+  color: #000000;
 }
+
+
 
 /* REMOVE WEIRD CHECKBOX SPACING */
 .task-item input[type="checkbox"] {
@@ -184,7 +219,7 @@ button:hover{
 
 .task-date {
   font-size: 13px;
-  color: #cbd5e1;
+  color: #3eec4a;
 }
 
 /* DELETE BUTTON */
@@ -202,8 +237,8 @@ button:hover{
 
 /* DONE STATE */
 .task-item.done {
-  background: #e5e7eb;
-  color: #aa5151;
+  background: linear-gradient(120deg, #ffffff, #1eaf07);
+  color: #0f770b;
 }
 
 .task-item.done .task-text {
@@ -216,22 +251,51 @@ button:hover{
   padding: 0;
   margin: 0;
 }
+#todoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
+  max-height: 400px;   /* 👈 adjust this */
+  max-width: 900px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;  /* space for scrollbar */
+}
+#todoList::-webkit-scrollbar {
+  width: 8px;
+}
+
+#todoList::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+#todoList::-webkit-scrollbar-thumb {
+  background: #094a0b;
+  border-radius: 10px;
+}
+
+#todoList::-webkit-scrollbar-thumb:hover {
+  background: #032f07;
+}
 /* LI */
 .task-item {
   display: flex;
   align-items: center;
   gap: 12px;
 
-  background: linear-gradient(135deg, #0b0f14, #000);
+  background: linear-gradient(120deg, #ebff35, #1eaf07);
   padding: 14px 18px;
   border-radius: 14px;
   margin-bottom: 12px;
 }
 
+
 /* Checkbox */
 .task-check {
   margin: 0;
+  color: #066214;
 }
 
 /* Text + date wrapper */
@@ -244,22 +308,46 @@ button:hover{
 
 /* Task text */
 .task-text {
-  color: #c72929;
+  color: #000000;
   font-size: 16px;
 }
 
 /* Date */
 .task-date {
-  color: #cfcfcf;
+  color: #04390f;
   font-size: 13px;
   white-space: nowrap;
 }
 
 /* Delete button */
 .delete-btn {
-  background: #ff7b7b;
+  background: #215e00;
   border: none;
   border-radius: 10px;
   padding: 8px 10px;
   cursor: pointer;
+}   
+.task-content {
+  display: flex;
+  justify-content: space-between;  /* pushes text left, date right */
+  align-items: center;
+  flex: 1;
+  gap: 20px;
+}
+
+.task-text {
+  font-size: 16px;
+  color: #000;
+}
+
+.task-date {
+  font-size: 13px;
+  color: #04390f;
+  white-space: nowrap;
+}
+.cards-row {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* keeps it responsive */
 }

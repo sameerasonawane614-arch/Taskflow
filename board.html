@@ -8,17 +8,19 @@
 </head>
 
 <body>
-  <div class="app">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <h2>TASKFLOW</h2>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="board.html" class="active">Board</a>
-      </nav>
-    </aside>
+  <div class="page-content">
+
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">TaskFlow</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Dashboard.html">Dashboard</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
 
     <!-- MAIN -->
     <main class="main">
@@ -42,15 +44,15 @@
       </div>
     </main>
 
-  </div>
-
-      <!-- NOTES CARD -->
-      <div class="card notes-card">
-        <section class="card notes-card">
-        <h2>Notes</h2>
+    <!-- ✅ NOTES NOW INSIDE page-content -->
+    <div class="card notes-card">
+      <h2>Notes</h2>
+      <div class="notes-scroll">
         <ul id="notesList"></ul>
-        </section>
       </div>
+    </div>
+
+  </div>
 
   <script src="board.js"></script>
 </body>

@@ -9,16 +9,20 @@
 
 <body>
 
-  <div class="app">
+  <div class="page-content">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <h2>TASKFLOW</h2>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="board.html">Board</a>
-      </nav>
-    </aside>
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">TaskFlow</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="board.html">Board</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="history.html">History</a></li>
+
+      </ul>
+    </nav>
+
 
     <!-- MAIN DASHBOARD -->
     <main class="main">
@@ -26,9 +30,9 @@
       <!-- TOP BAR -->
       <div class="top-bar">
         <h1>Dashboard</h1>
-        <button class="mode-btn" onclick="toggleMode()">🌙</button>
+        <p>This is a Dashboard from where you can add notes and tasks</p>
       </div>
-
+    <div class="cards-row">
       <!-- TASK INPUT CARD -->
       <div class="card">
         <h3>Add Task</h3>
@@ -55,9 +59,9 @@
         <textarea id="noteText" placeholder="Write your note..."></textarea>
         <button onclick="addNote()">Add Note</button>
 
-        <ul id="notesList"></ul>
+        
       </div>
-
+    </div>
       <!-- TODO LIST -->
 <div class="card status-card">
   <h3>Todo List</h3>
@@ -77,6 +81,7 @@
         <button class="delete-btn">🗑</button>
       </li>
 
+      
       <li class="task-item">
         <input type="checkbox" />
         
@@ -91,13 +96,10 @@
   </div>
 </div>
 
-
-
+<ul id="notesList"></ul>
 
     </main>
   </div>
-
-
 
   <script src="Dashboard.js"></script>
 </body>

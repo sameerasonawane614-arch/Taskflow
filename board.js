@@ -58,7 +58,9 @@ setupDrop(todoCol, "todo");
 setupDrop(progressCol, "progress");
 setupDrop(doneCol, "done");
 
-/* ---------- NOTES (READ ONLY) ---------- */
+
+
+/* ---------- NOTES (WITH DELETE) ---------- */
 
 function renderNotes() {
   if (!notesList) return;
@@ -66,20 +68,46 @@ function renderNotes() {
   const notes = JSON.parse(localStorage.getItem("notes")) || [];
   notesList.innerHTML = "";
 
-  notes.forEach(note => {
+  notes.forEach((note, index) => {
     const li = document.createElement("li");
     li.className = "note-card";
 
     li.innerHTML = `
-      <strong>${note.title}</strong>
-      <p>${note.text}</p>
+      <div class="note-content">
+        <strong>${note.title}</strong>
+        <p>${note.text}</p>
+      </div>
+      <button class="delete-btn">Delete</button>
     `;
+
+    // ✅ DELETE NOTE
+    li.querySelector(".delete-btn").addEventListener("click", () => {
+
+      // Save to history
+      let history = JSON.parse(localStorage.getItem("history")) || [];
+
+      history.push({
+        type: "note",
+        title: note.title,
+        text: note.text,
+        deletedAt: new Date().toLocaleString(),
+        timestamp: Date.now()
+      });
+
+      localStorage.setItem("history", JSON.stringify(history));
+
+      // Remove note
+      notes.splice(index, 1);
+      localStorage.setItem("notes", JSON.stringify(notes));
+
+      renderNotes();
+    });
 
     notesList.appendChild(li);
   });
 }
 
-/* ---------- INIT ---------- */
+/* ---------- INIT ---------- important*/
 
 document.addEventListener("DOMContentLoaded", () => {
   renderBoard();

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task History</title>
+  
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* BODY LAYOUT */
+body {
+  
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(150deg, #caa10e, #efefef);
+  color: #817607;
+}
+/* PAGE CONTENT */
+    .page-content {
+      flex: 1;
+      padding: 10px;
+    }
+
+/* BOARD TITLE */
+.main h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background:  #014f04bb;
+  position: sticky;   /* ADD THIS */
+  top: 0;             /* ADD THIS */
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e8e7eb;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #c5f40a;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+
+.container {
+  width: 60%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+/* HISTORY LIST ONLY */
+#historyList {
+  list-style: none;
+  padding: 0;
+}
+
+#historyList li {
+  background: #ffffff;
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #70c125;
+  border-radius: 10px;
+  background-color: #094a0b;
+}
+button:hover{
+  background: #ffe11e;
+  transform: scale(1.02);
+}
+
+</style>
+</head>
+<body>
+<div class="page-content">
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">TaskFlow</div>
+      <ul>
+        <li><a href="Dashboard.html">Dashboard</a></li>
+        <li><a href="board.html">Board</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="history.html">History</a></li>
+
+      </ul>
+    </nav>
+
+  <div class="container">
+    <h1>Task History</h1>
+    <p class="subtitle">All your completed tasks live here.</p>
+
+    <ul id="historyList"></ul>
+
+    <button onclick="goBack()">Back to Home</button>
+    <button onclick="clearHistory()">Clear History</button>
+  </div>
+  <script src="history.js"></script>
+</body>
+</html>

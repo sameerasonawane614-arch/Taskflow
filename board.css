@@ -1,77 +1,91 @@
 * {
-  box-sizing: border-box;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #ffa2a2;
-}
-
-body {
   margin: 0;
-  background: linear-gradient(45deg, #9e1f1f, #e7e8ee);
-  background-image: url("Download maroon background high quality for free.jpg");
-  background-repeat: repeat;
-  color: #111827;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* APP LAYOUT */
-.app {
-  display: flex;
+/* BODY LAYOUT */
+body {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(150deg, #caa10e, #efefef);
+  color: #817607;
 }
 
-/* SIDEBAR */
-.sidebar {
-  width: 230px;
-  background: linear-gradient(180deg, #9e1f1f, #020617);
-  color: white;
-  padding: 24px 20px;
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+/* PAGE CONTENT */
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
-.sidebar h2 {
-  margin-bottom: 36px;
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background:  #09580bbb;
+  position: sticky;   /* ADD THIS */
+  top: 0;             /* ADD THIS */
+  z-index: 1000;
+}
+
+.logo {
   font-size: 22px;
-  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: #e8e7eb;
 }
 
-.sidebar a {
-  display: block;
-  color: #cbd5f5;
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav ul li a {
   text-decoration: none;
-  margin-bottom: 16px;
-  padding: 10px 14px;
-  border-radius: 8px;
+  color: #c5f40a;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
   transition: all 0.25s ease;
 }
 
-.sidebar a:hover {
-  background: rgba(0, 0, 0, 0.08);
-  color: #fff;
-}
-
-.sidebar a.active {
-  background: #9e1f1f;
-  color: #fff;
-  font-weight: 500;
+nav ul li a:hover {
+  background: rgba(255,255,255,0.1);
 }
 
 /* MAIN CONTENT */
 .main {
-  flex: 1;
   padding: 32px;
+}
+
+/* BOARD TITLE */
+.main h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 /* KANBAN COLUMNS */
 .columns {
   display: flex;
   gap: 24px;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .column {
   flex: 1;
-  background: #9e1f1f;
+  background: #094a0b;
   border-radius: 16px;
   padding: 18px;
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -85,22 +99,22 @@ body {
   margin-bottom: 14px;
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color: #c5f40a;
 }
 
 /* TASK LIST */
 .column ul {
   list-style: none;
   padding: 0;
-  min-height: 140px;
+  margin: 0;
+  flex: 1;              /* fills remaining space */
+  overflow-y: auto;     /* scroll only tasks */
+  overflow-x: hidden;
 }
 
-/* TASK CARD (you’ll love this one) */
+/* TASK CARD */
 .column li {
-  background: #f9fafb;
+  background: #f5f5f5;
   padding: 12px 14px;
   border-radius: 10px;
   margin-bottom: 12px;
@@ -111,7 +125,7 @@ body {
 }
 
 .column li:hover {
-  background: #000000;
+  background: #dcc91f;
   transform: scale(1.02);
 }
 
@@ -119,15 +133,103 @@ body {
   cursor: grabbing;
 }
 
-.card {
-  background: linear-gradient(45deg, #9e1f1f, #020617);
-  padding: 20px;
-  margin-bottom: 24px;
-  box-shadow: 0 10px 30px rgba(197, 181, 181, 0.05);
-  border-radius: 2px;
-  font-style: italic;
-
-  border: 1px solid #3e3e3f;
-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
-
+/* NOTES CARD */
+.notes-card {
+  max-width: 700px;
+  margin: 20px;
+  margin-left:50px;
+  padding: 25px;
+  border-radius: 18px;
+  background: #ffee0068;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
+
+/* NOTES TITLE */
+.notes-card h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+/* SCROLL AREA */
+.notes-scroll {
+  height: 300px;        /* fixed height for scroll */
+  overflow-y: auto;
+  padding-right: 8px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 12px;
+}
+
+/* NOTES LIST */
+.notes-scroll ul {
+  list-style: none;
+}
+
+/* NOTE ITEM */
+.notes-scroll li {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+
+.note-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+/* SCROLLBAR STYLE */
+.notes-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notes-scroll::-webkit-scrollbar-thumb {
+  background: #094a0b;
+  border-radius: 10px;
+}
+
+
+/* KANBAN SCROLLBAR */
+.column ul::-webkit-scrollbar {
+  width: 8px;   /* thickness */
+}
+
+.column ul::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.column ul::-webkit-scrollbar-thumb {
+  background: #c5f40a;  /* your neon green */
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.column ul::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+.delete-btn {
+  background: #e5d635;
+  color: #ffffff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  height: fit-content;
+}
+
+.delete-btn:hover {
+  background: #9de411;
+  transform: scale(1.02);
+}
+
